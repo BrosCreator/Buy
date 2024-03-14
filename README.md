@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Title Here</title>
+    <title>Buy</title>
     <style>
-        /* Add your CSS styles here */
         .slide {
             display: none;
         }
-
         .active-slide {
             display: block;
         }
@@ -19,47 +17,39 @@
     <header>
         <h1>Your Website Title</h1>
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
+            <button onclick="showSlide(1)">Product 1</button>
+            <button onclick="showSlide(2)">Product 2</button>
+            <button onclick="showSlide(3)">Product 3</button>
         </nav>
     </header>
 
-    <main>
+ <main>
         <section class="slide active-slide" id="slide1">
-            <h2>Section 1</h2>
-            <p>This is the content of section 1.</p>
+            <h2>Product 1</h2>
+            <p>This is the content of Product 1.</p>
         </section>
         <section class="slide" id="slide2">
-            <h2>Section 2</h2>
-            <p>This is the content of section 2.</p>
+            <h2>Product 2</h2>
+            <p>This is the content of Product 2.</p>
         </section>
         <section class="slide" id="slide3">
-            <h2>Section 3</h2>
-            <p>This is the content of section 3.</p>
+            <h2>Product 3</h2>
+            <p>This is the content of Product 3.</p>
         </section>
-
-        <!-- Button to show next slide -->
-        <button id="showSlideBtn">Show Next Slide</button>
-
-        <script>
-            var currentSlideIndex = 1;
-            var totalSlides = 3;
-
-            document.getElementById("showSlideBtn").addEventListener("click", function() {
-                var currentSlide = document.getElementById("slide" + currentSlideIndex);
-                currentSlide.classList.remove("active-slide");
-                currentSlideIndex = (currentSlideIndex % totalSlides) + 1;
-                var nextSlide = document.getElementById("slide" + currentSlideIndex);
-                nextSlide.classList.add("active-slide");
-            });
-        </script>
     </main>
 
-    <footer>
+ <footer>
         <p>&copy; 2024 Your Website</p>
     </footer>
+
+ <script>
+        function showSlide(slideNumber) {
+            var slides = document.querySelectorAll('.slide');
+            slides.forEach(function(slide) {
+                slide.classList.remove('active-slide');
+            });
+            document.getElementById('slide' + slideNumber).classList.add('active-slide');
+        }
+    </script>
 </body>
 </html>
